@@ -52,10 +52,6 @@ td, th {
   text-align: center;
 }
 
-th:last-child{
-  background-color: green;
-  color: white;
-}
 
 td:last-child{
   background-color: darkturquoise;

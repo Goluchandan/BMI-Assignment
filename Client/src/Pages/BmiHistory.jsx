@@ -3,11 +3,14 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { nanoid } from "nanoid";
 import { Image, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const BmiHistory = () => {
   const [userBmi, setUserBmi] = useState([]);
   const [userData , setUserData] = useState([]);
   const userId = JSON.parse(localStorage.getItem("userid"));
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if(!userId){
@@ -15,7 +18,6 @@ const BmiHistory = () => {
     }
   }, [userId])
 
-  
   useEffect(() => {
     axios
       .get(`/calculate/${userId}/get/bmidata`)
@@ -69,7 +71,7 @@ const BmiHistory = () => {
       <div>
         <table>
           <thead>
-            <tr>
+            <tr style={{backgroundColor: 'blueviolet', color: 'white'}}>
               <th>SR. NO.</th>
               <th>HEIGHT</th>
               <th>WEIGHT</th>
