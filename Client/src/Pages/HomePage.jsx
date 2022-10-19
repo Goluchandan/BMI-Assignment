@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import {
   Flex,
@@ -26,7 +26,7 @@ const HomePage = () => {
         navigate("/signup")
     }
   }, [userid])
-  
+
   const handleSubmit = () => {
       if(height<1){
         alert("Height should be greater than 1 feet")
