@@ -10,6 +10,13 @@ const BmiHistory = () => {
   const userId = JSON.parse(localStorage.getItem("userid"));
 
   useEffect(() => {
+    if(!userId){
+        navigate("/signup")
+    }
+  }, [userId])
+
+  
+  useEffect(() => {
     axios
       .get(`/calculate/${userId}/get/bmidata`)
       .then((data) => {

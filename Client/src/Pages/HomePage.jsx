@@ -21,6 +21,12 @@ const HomePage = () => {
   const userid = JSON.parse(localStorage.getItem("userid"))
   const navigate = useNavigate();
 
+  useEffect(() => {
+    if(!userid){
+        navigate("/signup")
+    }
+  }, [userid])
+  
   const handleSubmit = () => {
       if(height<1){
         alert("Height should be greater than 1 feet")
