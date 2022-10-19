@@ -7,16 +7,16 @@ import { useNavigate } from "react-router-dom";
 
 const BmiHistory = () => {
   const [userBmi, setUserBmi] = useState([]);
-  const [userData , setUserData] = useState([]);
+  const [userData, setUserData] = useState([]);
   const userId = JSON.parse(localStorage.getItem("userid"));
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    if(!userId){
-        navigate("/signup")
+    if (!userId) {
+      navigate("/signup");
     }
-  }, [userId])
+  }, [userId]);
 
   useEffect(() => {
     axios
@@ -44,7 +44,17 @@ const BmiHistory = () => {
 
   return (
     <div>
-      <div style={{ width: "30%" , border:"3px solid gray" , marginLeft:"100px", padding:"10px" , marginTop:"20px" ,borderRadius:"10px", backgroundColor:"gainsboro"}}>
+      <div
+        style={{
+          width: "30%",
+          border: "3px solid gray",
+          marginLeft: "100px",
+          padding: "10px",
+          marginTop: "20px",
+          borderRadius: "10px",
+          backgroundColor: "gainsboro",
+        }}
+      >
         <h2 className="user_info">USER DETAILS</h2>
         <div className="user_Info_container">
           <div style={{ width: "100%" }}>
@@ -64,14 +74,18 @@ const BmiHistory = () => {
         </div>
       </div>
       <div></div>
-      <Text bgGradient="linear(to-r,pink.500 , green.600, red.600)"
-            bgClip="text"
-            fontSize={'4xl'}
-            fontWeight="extrabold" >Get your BMI Previous History</Text>
+      <Text
+        bgGradient="linear(to-r,pink.500 , green.600, red.600)"
+        bgClip="text"
+        fontSize={"4xl"}
+        fontWeight="extrabold"
+      >
+        Get your BMI Previous History
+      </Text>
       <div>
         <table>
           <thead>
-            <tr style={{backgroundColor: 'blueviolet', color: 'white'}}>
+            <tr style={{ backgroundColor: "blueviolet", color: "white" }}>
               <th>SR. NO.</th>
               <th>HEIGHT</th>
               <th>WEIGHT</th>
