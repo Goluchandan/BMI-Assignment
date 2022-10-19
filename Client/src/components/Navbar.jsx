@@ -1,4 +1,3 @@
-// import { React, useState } from 'react';
 import {
   Box,
   Flex,
@@ -12,10 +11,19 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 
 
+
   const Navbar = () => {
 
   const { colorMode, toggleColorMode } = useColorMode();
+  const userid = JSON.parse(localStorage.getItem("userid"))
   const navigate = useNavigate();
+  console.log(userid);
+
+  const handleLogOut = () => {
+    localStorage.removeItem("userid")
+    navigate("/signup")
+  }
+
 
   return (
     <>
@@ -34,9 +42,13 @@ import { useNavigate } from 'react-router-dom';
               <Button bg='blue.200' onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
               </Button>
-
-              <Button bg='teal' colorScheme="white" onClick={() => navigate("/login")} >LOGIN</Button>
-              <Button bg="teal" colorScheme="white" onClick={() => navigate("/signup")} >Sign Up</Button>
+              {userid ===null ? <>
+                <Button bg='teal' colorScheme="white" onClick={() => navigate("/login")} >LOGIN</Button>
+                <Button bg="teal" colorScheme="white" onClick={() => navigate("/signup")} >Sign Up</Button>
+              </> : <>
+                  <Button bg="teal" colorScheme="white" onClick= {handleLogOut} >Log Out</Button>
+                </>}
+              
             </Stack>
           </Flex>
         </Flex>
