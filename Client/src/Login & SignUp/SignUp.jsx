@@ -26,17 +26,20 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-      if(name === ""){
-        alert("Please enter your name");
+      if(name === "" && password === "" && email === "" ){
+        alert("Please Enter your Name, Email and Password ");
+      }
+      else if(name === ""){
+        alert("Please Enter your Name");
       }
       else if(email === ""){
-        alert("Please enter your email");
+        alert("Please Enter your Email");
       }
       else if(password === "" ){
-        alert("Please enter your password");
+        alert("Please Enter your Password");
       }
       else if(password.length < 6) {
-        alert("password must be at least 6 characters")
+        alert("Password Must be at least 6 Characters")
       }
       else{
         const users = { 
